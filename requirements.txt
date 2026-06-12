@@ -1,0 +1,7 @@
+Flask==3.0.0
+ultralytics>=8.1.0
+torch
+torchvision
+numpy
+Pillow
+opencv-python-headless

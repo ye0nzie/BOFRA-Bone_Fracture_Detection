@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Sistem Deteksi Patah Tulang — Upload X‑Ray</title>
+  <meta name="description" content="Antarmuka pengguna untuk mengunggah gambar X-ray dan mendeteksi patah tulang menggunakan model AI.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+
+</head>
+<body>
+  
+  <div id="startPage" class="start-page">
+    <div class="start-content">
+      <div class="logo2">
+        <img src="{{ url_for('static', filename='template/logo.png') }}" alt="Logo">
+      </div>
+      <h1 class="start-title">Bone Fracture Detector</h1>
+      <p class="start-sub">Sistem deteksi patah tulang berbasis AI yang dapat menganalisis gambar X-Ray dengan akurasi tinggi</p>
+      <button id="startBtn" class="start-btn">
+        <i class="fas fa-play-circle"></i> Mulai Analisis
+      </button>
+    </div>
+  </div>
+
+
+  <div id="mainApp" class="main-app">
+    
+    <header>
+      <div class="logo">
+        <img src="{{ url_for('static', filename='template/logo.png') }}" alt="Logo">
+      </div>
+      <div class="header-text">
+        <h1>Bone Fracture Detector</h1>
+        <p>Unggah gambar X‑ray untuk deteksi patah tulang menggunakan AI</p>
+      </div>
+
+    </header>
+
+   
+    <div class="main-layout">
+      
+      <div class="left-column">
+        <div class="upload-card">
+          <h2><i class="fas fa-cloud-upload-alt"></i> Unggah Gambar X-Ray</h2>
+          
+          
+          <div id="dropArea" class="drop-area">
+            <i class="fas fa-x-ray"></i>
+            <div class="drop-text">
+              <h3>Tarik & Lepas file di sini</h3>
+              <p>Format yang didukung: JPG, PNG (Maks. 10MB)</p>
+            </div>
+            <div class="file-input-wrapper">
+              <label for="fileInput" class="file-input-label">
+                <i class="fas fa-folder-open"></i> Pilih File
+              </label>
+              <input type="file" id="fileInput" class="file-input" accept="image/*">
+            </div>
+          </div>
+          
+          
+          <div id="fileInfo" class="file-info">
+            <div class="file-info-header">
+              <h4><i class="fas fa-file-medical-alt"></i> File Terpilih</h4>
+              <span id="fileSize" class="file-size"></span>
+            </div>
+            <div class="file-details">
+              <span><i class="fas fa-file-image"></i> <span id="fileName"></span></span>
+              <span><i class="fas fa-calendar-alt"></i> <span id="fileDate"></span></span>
+            </div>
+          </div>
+          
+          
+          <div id="imagePreview" class="image-preview">
+            <h3><i class="fas fa-image"></i> Preview Gambar</h3>
+            <div class="preview-container">
+              <img id="previewImage" class="preview-image" src="" alt="Preview X-Ray">
+            </div>
+          </div>
+          
+        
+          <div class="controls">
+            <button id="resetBtn" class="btn btn-secondary">
+              <i class="fas fa-redo"></i> Reset
+            </button>
+            <button id="analyzeBtn" class="btn btn-primary" disabled>
+              <i class="fas fa-search"></i> Analisis Gambar
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      
+      <div class="sidebar">
+        
+        <div class="result-card">
+          <h2><i class="fas fa-chart-line"></i> Hasil Analisis</h2>
+          
+          
+          <div id="resultPlaceholder" class="result-placeholder">
+            <i class="fas fa-microscope"></i>
+            <p>Hasil analisis akan muncul di sini setelah Anda mengunggah gambar.</p>
+          </div>
+          
+          
+          <div id="resultContent" class="result-content">
+            
+          </div>
+        </div>
+        
+        
+        <div class="info-card">
+          <h3><i class="fas fa-lightbulb"></i> Panduan Penggunaan</h3>
+          <ul class="guidelines">
+            <li>Gunakan gambar X‑ray yang jelas dan fokus pada area yang ingin diperiksa.</li>
+            <li>Pastikan pencahayaan gambar merata dan tidak terlalu gelap/terang.</li>
+            <li>Hindari artefak seperti watermark, teks, atau garis pengukur.</li>            
+            <li>Hasil analisis bukan pengganti diagnosis medis profesional.</li>
+          </ul>
+        </div>
+        
+        
+        <div class="info-card">
+          <h3><i class="fas fa-info-circle"></i> Catatan Penting</h3>
+          <p class="note">Untuk hasil akhir, lakukan pemeriksaan radiologi oleh profesional.</p>
+        </div>
+      </div>
+    </div>
+    
+    
+    <footer>
+      <p>&copy; Project AI - Sistem Deteksi Patah Tulang Berbasis AI</p>
+    </footer>
+  </div>
+
+  
+
+</body>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+<script src="/static/js/script.js"></script>
+
+
+
+</html>
